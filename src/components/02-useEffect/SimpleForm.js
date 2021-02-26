@@ -5,10 +5,11 @@ export const SimpleForm = () => {
 
     const [formState, setFormState] = useState({
         name: '',
-        email: ''
+        email: '',
+        password: ''
     })
 
-    const { name, email } = formState
+    const { name, email, password } = formState
 
     useEffect(() => {
         console.log('hey')
@@ -58,6 +59,17 @@ export const SimpleForm = () => {
                         value={email}
                         onChange={handleInputChange}
                         placeholder="Correo" />
+                    
+                    <label className="block text-gray-700 text-sm font-semibold mb-2 mt-4" htmlFor="email">Contraseña</label>
+                    <input
+                        className="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+                        id="password"
+                        type="password"
+                        autoComplete='off'
+                        name='password'
+                        value={password}
+                        onChange={handleInputChange}
+                        placeholder="Contraseña" />
 
                 </form>
             </div>
