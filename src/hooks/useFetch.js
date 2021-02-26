@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 
 export const useFetch = (url) => { //Recibe la Url
     
+    
+
     const [state, setstate] = useState({ //Ponemos un objeto en el estado que son los valores inciales
         data: null, //La data que se trae por el momento es nulo
         loading: true, //La carga es verdadera
@@ -9,6 +11,13 @@ export const useFetch = (url) => { //Recibe la Url
     })
 
     useEffect(() => { //Usamos un efecto que va a cambiar cuando la url cambie
+
+        setstate({ //ACTUALIZAMOS EL STATE PARA CUANDO ACTUALIZAN LAS QUOTES, QUE SALGA EL LOADING
+            data: null, //La data que se trae por el momento es nulo
+            loading: true, //La carga es verdadera
+            error: null //Por si hay un error en la carga
+        })
+
         fetch(url)// Peticion a la url
         .then(resp => resp.json()) //Convertimos la data del url a JSON
         .then(data => {// Pasamos la data
