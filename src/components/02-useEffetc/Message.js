@@ -1,11 +1,31 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 export const Message = () => {
 
+    const [coors, setCoors] = useState({
+        x: 0,
+        y: 0
+    })
+
+    const {x,y} = coors;
+
+
     useEffect(() => {
-        console.log('Componente Montado')
+
+        const mouseMoves = (mouseMove) => {
+            const coors = {
+                x: mouseMove.x,
+                y: mouseMove.y
+            }
+
+            setCoors(coors)
+            console.log(coors)
+        }
+        
+        window.addEventListener('mousemove', mouseMoves)
+
         return () => {
-            console.log('Componente Desmontado')
+            window.removeEventListener('mousemove', mouseMoves)
         }
     }, [])
 
@@ -13,6 +33,8 @@ export const Message = () => {
     return (
         <div>
             <h3>Eres Genial</h3>
+            <p>x: {x}</p>
+            <p>y: {y}</p>
         </div>
     )
 }
