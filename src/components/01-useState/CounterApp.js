@@ -2,20 +2,24 @@ import React, {useState} from 'react'
 
 export const CounterApp = () => {
     
-  const [{counter1, counter2}, setCounter] = useState({
+  const [state, setState] = useState({
     counter1: 10,
-    counter2: 20
-  })
+    counter1: 20,
+    counter3: 30,
+    counter4: 40
+  })  
+
+  const {counter1, counter2} = state;
 
   // console.log(counter1, counter2)
 
   const handledSubmit = () => {
-    setCounter({
-      counter1: counter1 + 1,
-      counter2: 20
-    })
+    setState({
+      ...state,
+      counter1: counter1 + 1
+    });
   }
-  
+
   return (
         <>
         <div className='container mx-auto'>
