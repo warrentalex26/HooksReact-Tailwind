@@ -5,6 +5,7 @@ import { CounterWithCustomHooks } from './components/01-useState/CounterWithCust
 import { SimpleForm } from './components/02-useEffect/SimpleForm';
 import { MultilpeCustomHooks } from './components/03-examples/MultilpeCustomHooks'; //App con las quotes
 import { FocusScreen } from './components/04-useRef/FocusScreen';
+import { RealExampleRef } from './components/04-useRef/RealExampleRef';
 
 // import { HookApp } from './HookApp';
 import './index.css';
@@ -12,7 +13,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FocusScreen/>
+    <RealExampleRef/>
   </React.StrictMode>,
   document.getElementById('root')
 );
