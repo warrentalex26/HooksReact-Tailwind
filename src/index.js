@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 // import { CounterApp } from './components/01-useState/CounterApp';
 import { CounterWithCustomHooks } from './components/01-useState/CounterWithCustomHooks';
 import { SimpleForm } from './components/02-useEffect/SimpleForm';
-import { MultilpeCustomHooks } from './components/03-examples/MultilpeCustomHooks';
+import { MultilpeCustomHooks } from './components/03-examples/MultilpeCustomHooks'; //App con las quotes
+import { FocusScreen } from './components/04-useRef/FocusScreen';
 
 // import { HookApp } from './HookApp';
 import './index.css';
@@ -11,7 +12,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MultilpeCustomHooks/>
+    <FocusScreen/>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -19,4 +20,3 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
