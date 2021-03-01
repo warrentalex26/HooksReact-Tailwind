@@ -32,6 +32,18 @@ export const TodoApp = () => {
         localStorage.setItem('todos', JSON.stringify(todos)) //Grabamos como string ya que eso es lo que admite el localstorage
     }, [todos])//Mandamos actualizar el componente cuando los todos cambien
 
+
+    const handledelete = (todoId) => {
+  
+        const action = {
+            type: 'delete',
+            payload: todoId
+        }
+
+        dispatch(action);
+
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -74,7 +86,7 @@ export const TodoApp = () => {
                                     todos.map((todo, i) =>
                                         // line-through
                                         <li className='p-2 ' key={todo.id}>{i + 1}. {todo.desc}
-                                            <button className=' inline-block mt-1 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg ml-4'>Borrar</button>
+                                            <button onClick={() => handledelete(todo.id)} className=' inline-block mt-1 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg ml-4'>Borrar</button>
                                         </li>
                                     )
                                 }
