@@ -1,25 +1,47 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
+import { useForm } from '../../hooks/useForm';
 import { todoReducer } from './todoReducer';
 
 
-const initialState = [{
-    id: new Date().getTime(),
-    desc: 'Aprender React',
-    done: false
-}]
+// const initialState = [{
+//     id: new Date().getTime(),
+//     desc: 'Aprender React',
+//     done: false
+// }]
+
+const init = () => {
+
+    return JSON.parse(localStorage.getItem('todos')) || []; //recuperamos los todos del localstorage
+
+    // return [{
+    //     id: new Date().getTime(),
+    //     desc: 'Aprender React',
+    //     done: false
+    // }]
+}
 
 export const TodoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
-    
-    console.log(todos)
+    const [todos, dispatch] = useReducer(todoReducer, [], init);
+
+    const [{ description }, handleInputChange, reset] = useForm({
+        description: '',
+    });
+
+    useEffect(() => { //Grabar en el localstorage
+        localStorage.setItem('todos', JSON.stringify(todos)) //Grabamos como string ya que eso es lo que admite el localstorage
+    }, [todos])//Mandamos actualizar el componente cuando los todos cambien
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (description.trim().length <= 1) {
+            return;
+        }
+
         const newTodo = {
             id: new Date().getTime(),
-            desc: 'Nueva Tarea',
+            desc: description,
             done: false
         }
 
@@ -29,7 +51,8 @@ export const TodoApp = () => {
         }
 
         dispatch(action);
-        console.log(action)
+        reset();
+
 
     }
 
@@ -38,7 +61,7 @@ export const TodoApp = () => {
 
     return (
         <div className='-m-2 text-center mt-6'>
-            <h1 className='font-sans text-3xl'>TodoAPP - {todos.length}</h1>
+            <h1 className='font-sans text-3xl'>TodoAPP -{todos.length}</h1>
             <hr />
 
             <div className="mt-9 flex justify-center items-center">
@@ -50,8 +73,8 @@ export const TodoApp = () => {
                                 {
                                     todos.map((todo, i) =>
                                         // line-through
-                                        <li className='p-4 ' key={todo.id}>{i + 1}. {todo.desc}
-                                            <button className=' inline-block mt-4 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg ml-4'>Borrar</button>
+                                        <li className='p-2 ' key={todo.id}>{i + 1}. {todo.desc}
+                                            <button className=' inline-block mt-1 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg ml-4'>Borrar</button>
                                         </li>
                                     )
                                 }
@@ -71,6 +94,8 @@ export const TodoApp = () => {
                     name='description'
                     type="text"
                     autoComplete='off'
+                    onChange={handleInputChange}
+                    value={description}
                     placeholder="Descripción" />
                 <button className='inline-block mt-4 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg ml-4' type='submit'>Agregar</button>
 
