@@ -7,6 +7,8 @@ import { MultilpeCustomHooks } from './components/03-examples/MultilpeCustomHook
 import { FocusScreen } from './components/04-useRef/FocusScreen';
 import { RealExampleRef } from './components/04-useRef/RealExampleRef';
 import { LayoutEffect } from './components/05-useLayoutEffect/LayoutEffect';
+import { CallbackHook } from './components/06-memos/CallbackHook';
+import { MemoHook } from './components/06-memos/MemoHook';
 import { Memorize } from './components/06-memos/Memorize';
 
 // import { HookApp } from './HookApp';
@@ -15,7 +17,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Memorize/> 
+    <CallbackHook/> 
   </React.StrictMode>,
   document.getElementById('root')
 );
