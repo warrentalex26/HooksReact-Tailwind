@@ -44,6 +44,13 @@ export const TodoApp = () => {
 
     }
 
+    const handleToggle = (todoId) => {
+        dispatch({
+            type:'toggle',
+            payload: todoId
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -85,7 +92,7 @@ export const TodoApp = () => {
                                 {
                                     todos.map((todo, i) =>
                                         // line-through
-                                        <li className='p-2 ' key={todo.id}>{i + 1}. {todo.desc}
+                                        <li onClick={ () => handleToggle(todo.id)} className={`p-2 ${todo.done && 'line-through'}`} key={todo.id}>{i + 1}. {todo.desc}
                                             <button onClick={() => handledelete(todo.id)} className=' inline-block mt-1 focus:outline-none text-white text-sm py-1 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg ml-4'>Borrar</button>
                                         </li>
                                     )
