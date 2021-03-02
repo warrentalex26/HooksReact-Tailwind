@@ -11,6 +11,7 @@ import { CallbackHook } from './components/06-memos/CallbackHook';
 import { MemoHook } from './components/06-memos/MemoHook';
 import { Memorize } from './components/06-memos/Memorize';
 import { TodoApp } from './components/07-useReducer/TodoApp';
+import { MainApp } from './components/08-useContext/MainApp';
 
 // import { HookApp } from './HookApp';
 import './index.css';
@@ -18,7 +19,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoApp/> 
+    <MainApp/> 
   </React.StrictMode>,
   document.getElementById('root')
 );
