@@ -19,7 +19,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainApp/> 
+    <TodoApp/>
   </React.StrictMode>,
   document.getElementById('root')
 );
