@@ -22,9 +22,9 @@ export const NavBar = () => {
     
         <div className="menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
             <div className="text-md font-bold text-blue-700 lg:flex-grow">
-                <Link exact className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./home'>Home</Link>
-                <Link exact className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./login'>Login</Link>
-                <Link exact className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./about'>About</Link>
+                <Link  className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./home'>Home</Link>
+                <Link  className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./login'>Login</Link>
+                <Link  className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2" to='./about'>About</Link>
 
             </div>
         </div>
